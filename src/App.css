@@ -3,10 +3,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgb(243, 245, 247);
 }
 
 .App {
-  height: 290px;
+  min-height: 290px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   background-color: white;
   width: 377px;
@@ -17,18 +18,20 @@
   padding: 24px 16px;
 }
 
-.main {
+.task-manager {
   display: flex;
   gap: 6px;
 }
 
-.main input {
-  height: 40px;
-  width: 280px;
+.task-manager input {
+  max-height: 40px;
+  width: 220px;
+  border: 1px solid var(--border-border-border, rgba(228, 228, 231, 1));
+  border-radius: 6px;
   padding-left: 20px;
 }
 
-.main button {
+.task-manager button {
   height: 40px;
   width: 59px;
   border: none;
@@ -36,6 +39,32 @@
   gap: 10px;
   color: white;
   background: rgba(60, 130, 246, 1);
+}
+
+.filters {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  margin-top: 20px;
+  margin-left: 8px;
+}
+
+.filters button {
+  height: 32px;
+  padding: 4px 12px;
+  border: none;
+  border-radius: 6px;
+}
+.button1 {
+  color: white;
+  background-color: #3c82f6;
+}
+
+.noTask {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-size: 14px;
+  color: rgba(107, 114, 128, 1);
 }
 
 footer {
@@ -50,4 +79,8 @@ footer {
 
 .p2 {
   color: rgba(59, 115, 237, 1);
+}
+
+#tasks {
+  margin-top: 30px;
 }
