@@ -4,18 +4,43 @@ import "./App.css";
 const App = () => {
   const [tasks, setTasks] = useState([]);
   const [taskValue, setTaskValue] = useState("");
+  const [filterValue, setFilterValue] = useState("all");
 
   const clearTasks = () => setTasks([]);
+
   const addTask = () => {
-    if (taskValue === "") {
+    if (taskValue.trim() === "") {
       alert("Please enter a task!");
+      return;
     }
 
-    setTasks((prev) => [...prev, taskValue]);
+    const newTask = {
+      id: Date.now(),
+      value: taskValue,
+      status: "active",
+    };
+
+    setTasks((prev) => [...prev, newTask]);
     setTaskValue("");
   };
 
-  console.log(tasks);
+  const toggleTaskStatus = (id) => {
+    setTasks((prev) =>
+      prev.map((task) =>
+        task.id === id
+          ? {
+              ...task,
+              status: task.status === "active" ? "completed" : "active",
+            }
+          : task
+      )
+    );
+  };
+
+  const filteredTasks =
+    filterValue === "all"
+      ? tasks
+      : tasks.filter((task) => task.status === filterValue);
 
   return (
     <div className="appWrapper">
@@ -31,28 +56,49 @@ const App = () => {
             onChange={(e) => setTaskValue(e.target.value)}
           />
           <button onClick={addTask}>Add</button>
-          <button onClick={clearTasks}>Clear</button>
+          {tasks.length > 0 && <button onClick={clearTasks}>Clear</button>}
         </div>
 
         <div className="filters">
-          <button className="button1">All</button>
-          <button>Active</button>
-          <button>Completed</button>
+          {["all", "active", "completed"].map((filter) => (
+            <button
+              key={filter}
+              style={{
+                backgroundColor: filterValue === filter && "#3c82f6",
+                color: filterValue === filter && "#fff",
+                transition: "0.3s ease",
+              }}
+              onClick={() => setFilterValue(filter)}
+            >
+              {filter.charAt(0).toUpperCase() + filter.slice(1)}
+            </button>
+          ))}
         </div>
+
+        {tasks.length === 0 && (
+          <div className="noTask">No tasks yet. Add one above!</div>
+        )}
 
         <ul id="tasks">
-          {tasks.map((task) => {
-            return <li>{task}</li>;
-          })}
+          {filteredTasks.map((task) => (
+            <div className="section" key={task.id}>
+              <div className="taskuud">
+                <input
+                  type="checkbox"
+                  className="checkbox"
+                  checked={task.status === "completed"}
+                  onChange={() => toggleTaskStatus(task.id)}
+                />
+                <li className="task">{task.value}</li>
+              </div>
+              <button className="deleteOne">Delete</button>
+            </div>
+          ))}
         </ul>
-
-        <div>
-          <p className="noTask">No tasks yet. Add one above!</p>
-        </div>
 
         <footer>
           <p className="p1">Powered by&nbsp;&nbsp;</p>
-          <p className="p2">Pinecone Academy</p>
+          <p className="p2">Zolboo</p>
         </footer>
       </div>
     </div>
