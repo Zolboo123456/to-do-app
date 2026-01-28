@@ -1,126 +1,131 @@
-.appWrapper {
-  height: 100vh;
+#app-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  background-color: rgb(243, 245, 247);
+  align-items: flex-start;
+  height: 100vh;
+  background-color: #ffdcdc;
 }
 
-.appWrapper h2 {
-  font-size: 30px;
+#card {
+  border-radius: 8px;
+  padding: 24px 16px;
+  margin-top: 60px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.16);
+  background-color: #fff2eb;
+  width: 320px;
 }
 
-.App {
-  min-height: 290px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  background-color: white;
-  width: 360px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 20px;
-  padding: 10px 16px 18px 16px;
+#card h1 {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 20px;
 }
 
-.task-manager {
+#task-manager {
   display: flex;
   gap: 6px;
-  justify-content: center;
+}
+
+#task-manager input {
+  border-radius: 6px;
+  border: 1px solid #e4e4e7;
+  padding: 12px 16px;
   width: 100%;
-  max-width: 340px;
 }
 
-.task-manager input {
-  height: 40px;
-  flex: 1;
-  min-width: 0;
-  border: 1px solid rgba(228, 228, 231, 1);
-  border-radius: 6px;
-  padding-left: 20px;
-}
-
-.task-manager button {
-  height: 40px;
-  width: 60px;
-  border: none;
-  border-radius: 6px;
+#task-manager button {
+  background-color: #ffd6ba;
+  padding: 12px 16px;
   color: white;
-  background: rgba(60, 130, 246, 1);
-}
-
-.filters {
-  width: 100%;
-  display: flex;
-  gap: 8px;
-  margin-top: 20px;
-  margin-left: 40px;
-  justify-content: flex-start;
-}
-
-.filters button {
-  height: 32px;
-  padding: 4px 12px;
   border: none;
   border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  width: 59px;
 }
 
-.noTask {
-  margin-top: 40px;
-  margin-bottom: 40px;
+#filter {
+  margin: 20px 0;
+  display: flex;
+  gap: 6px;
+}
+
+#filter button {
+  color: #363636;
+  background-color: #e5e7eb;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+#no-task {
+  text-align: center;
   font-size: 14px;
-  color: rgba(107, 114, 128, 1);
+  color: #6b7280;
+  text-align: center;
+  padding: 12px 40px;
 }
 
 #tasks {
-  list-style-type: none;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding-right: 40px;
-  gap: 10px;
-}
-
-.section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #f9fafb;
-  height: 30px;
-  width: 310px;
-  padding: 14px;
-  border-radius: 8px;
-}
-
-.taskuud {
-  display: flex;
   gap: 10px;
 }
 
 .task {
+  background-color: #fff2eb;
   display: flex;
+  gap: 10px;
+  padding: 16px;
   align-items: center;
+}
+
+.task p {
+  width: 180px;
+  margin: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
   font-size: 14px;
 }
 
-footer {
-  display: flex;
-  font-size: 12px;
-  font-weight: 400;
-}
-
-.p1 {
-  color: rgba(107, 114, 128, 1);
-}
-
-.p2 {
-  color: rgba(59, 115, 237, 1);
-}
-
-.deleteOne {
-  height: 30px;
-  width: 70px;
-  background-color: rgb(254, 242, 242);
-  color: red;
+.task button {
+  padding: 0 12px;
   border: none;
+  background-color: #ffdcdc;
+  color: #ef4444;
+  cursor: pointer;
+  font-size: 14px;
+  height: 30px;
+  font-weight: 500;
   border-radius: 6px;
+}
+
+#summary {
+  border-top: 1px solid #f9fafb;
+  padding-top: 15px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #6b7280;
+  font-weight: 500;
+  margin-bottom: 40px;
+}
+
+#summary button {
+  border: none;
+  background-color: #fff2eb;
+  color: #ef4444;
+  cursor: pointer;
+}
+
+#footer-text {
+  font-size: 12px;
+  text-align: center;
+}
+
+#footer-text a {
+  text-decoration: none;
+  color: #3b73ed;
 }
